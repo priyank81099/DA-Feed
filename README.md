@@ -10,7 +10,7 @@ after that open command promt in backend folder and run following command
 
 -> "npm run server"
 
-after that open command promt in backend folder and run following command
+after that open command promt in frontend folder and run following command
 
 -> "npm install"
 
