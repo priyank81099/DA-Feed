@@ -73,8 +73,16 @@ class Bolgcomponent extends Component {
         toast('Blog Deleted Sucessfully', {position: toast.POSITION.BOTTOM_CENTER});
     }
 
-    onSaveComment = () => {
+    showMassege_login = () => {
+        toast.error('You have to login for Comment!!',{position: toast.POSITION.BOTTOM_CENTER})
+    }
+
+    onSaveComment = () => 
+    {
         const user_id = localStorage.getItem("token");
+        const isLoggedIn = (user_id === null) ? false : true;
+        if(isLoggedIn)
+        {
         const user_name = localStorage.getItem(user_id);
         const { editorState } = this.state;
         const post_id = this.props.post_id;
@@ -105,6 +113,11 @@ class Bolgcomponent extends Component {
             post_id:"",
         });
         window.localStorage.removeItem("content");
+        }
+        else
+        {
+            this.showMassege_login();
+        }
     }
 
     DeleteBlog = (id) => {
