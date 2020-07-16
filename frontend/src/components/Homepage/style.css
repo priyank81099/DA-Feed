@@ -1,0 +1,29 @@
+.Background {
+  background: url(./da3.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+html,
+body,
+.Background {
+  height: 100vh;
+}
+
+html,
+.Background{
+  overflow: hidden;
+}
+
+.mainbutton {
+  background-color: #112518;
+  color: white;
+  border: 2px solid #112518;
+  border-radius: 4px;
+  width: 100px;
+  height: 38px;
+}
+
+.mainbutton:hover {
+  background-color: #aeb2be;
+  color: black;
+}

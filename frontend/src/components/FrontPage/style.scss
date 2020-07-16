@@ -1,0 +1,102 @@
+.editor--playground {
+  padding: 1.5rem 1rem;
+  height: 85%;
+  border: 1px solid;
+  font-size: 1.5rem;
+  max-height: 30rem;
+  overflow-y: scroll;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.title {
+  width: 100%;
+  font-size: 3.5rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "Roboto Slab", serif;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+.title::placeholder {
+  font-family: "Roboto Slab", serif;
+  color: #666666;
+}
+
+.public-DraftEditorPlaceholder-root {
+  color: #666666;
+  padding-top: 0.3rem;
+  margin-bottom: -1.2rem;
+}
+
+.editor {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  cursor: text;
+  padding: 16px;
+  border-radius: 2px;
+  margin-bottom: 2em;
+  box-shadow: inset 0px 1px 8px -3px #ababab;
+  background: #fefefe;
+}
+
+.editor :global(.public-DraftEditor-content) {
+  min-height: 140px;
+}
+
+.headlineButtonWrapper {
+  display: inline-block;
+}
+
+.headlineButton {
+  background: #fbfbfb;
+  color: #888;
+  font-size: 18px;
+  border: 0;
+  padding-top: 5px;
+  vertical-align: bottom;
+  height: 34px;
+  width: 36px;
+}
+
+.headlineButton:hover,
+.headlineButton:focus {
+  background: #f3f3f3;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e3e1de;
+}
+
+.wrapper {
+  margin: 0 18%;
+  padding: 1.5rem 1rem;
+}
+
+.wrapper > button {
+  cursor: pointer;
+}
+
+.post__metadata {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-left: 0.5rem solid #808080;
+  &--createdBy {
+    align-self: flex-end;
+    font-weight: bold;
+    margin-left: 2rem;
+  }
+  &--createdDate {
+    margin: 1rem 0;
+    font-size: 2rem;
+  }
+}
+
+

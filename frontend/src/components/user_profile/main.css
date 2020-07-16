@@ -1,0 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Open + Sans);
+html,
+body {
+    background: url(./back5.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 110vh;
+    overflow: hidden;
+}
+
+div ul {
+    background: linear-gradient( 90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+div ul li {
+    display: inline-block;
+}
+
+div ul li a {
+    padding: 18px;
+    font-family: "Open Sans";
+    color: rgba(0, 35, 122, 0.7);
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+}
+
+div ul li a :hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 35, 122, 0.7);
+}
+
+#navbar {
+    overflow: hidden;
+}
+
+.sticky {
+    top: 0;
+    width: 100%;
+    margin-bottom: auto;
+}
+
+.sideheader {
+    font-size: xx-large;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+}
+
+.cont{
+    margin-right:90px ;
+    float:right;
+}
+
+.user_component {
+    margin-top: 10%;
+}
+
+.user_name {
+    text-transform: capitalize;
+    font-size: 4rem;
+}
+
+.ProfileImg {
+    margin-top: 10%;
+    margin-left: 15%;
+    border-radius: 10px;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+  }

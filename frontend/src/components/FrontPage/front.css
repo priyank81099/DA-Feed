@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html,
+body{
+  background: url(./back5.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 110vh;
+  overflow: hidden;
+}
+
+
+.cont{
+  margin-right:90px ;
+  float:right;
+}
+
+.button{
+  margin-right:900px;
+  margin-bottom:10px;
+  background-color:gray ;
+  border-radius: 12px;
+  color: Black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover{
+  background-color: darkgray;
+}
+
+div ul li {
+  display: inline-block;
+}
+
+div ul li a{
+  padding: 18px;
+  font-family: "Open Sans";
+  color: rgba(0, 35, 122, 0.7);
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+div ul li a :hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 35, 122, 0.7);
+}
+
+.mysidebar{
+  width: 25%;
+  position: fixed;
+}
+
+#navbar{
+  overflow: hidden;
+  background: linear-gradient( 90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  margin-top:20px;
+  padding: 0;
+}
+
+.sticky {
+  top: 0;
+  width: 100%;
+  margin-bottom: auto;
+}
+
+.sideheader{
+  font-size: xx-large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+}
+.for_margin{
+  margin-left: 60%;
+}
