@@ -155,7 +155,7 @@ class Bolgcomponent extends Component {
                             ) :
                             <span>{text}...</span>
                         }
-                        <Modal trigger={<a class="menu_links" href="/#"> Read More</a>} className="mymodel">
+                        <Modal trigger={<a class="menu_links"> Read More</a>} className="mymodel">
                             <Modal.Header className="blogname">{this.props.title}</Modal.Header>
                             <Modal.Content image>
                                 <Modal.Description className="mycontent"> 
