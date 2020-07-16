@@ -1,6 +1,6 @@
 # DA-Feed
 
-prerequisite :- ndoejs and reactjs
+prerequisite :- nodejs and reactjs
 
 To run Project Download Both (frontend & backend) folders.
 
