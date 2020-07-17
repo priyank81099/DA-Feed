@@ -34,7 +34,7 @@ export class Commentcomp extends Component {
             type: "LINK",
             mutability: "MUTABLE"
         };
-        const imglink = localStorage.getItem(this.props.user_name);
+        const imglink = localStorage.getItem(this.props.id+this.props.user_name);
         const blocks = this.props.content.blocks;
         const content = {
             blocks,
