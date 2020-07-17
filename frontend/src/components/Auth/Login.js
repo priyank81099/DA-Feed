@@ -27,7 +27,6 @@ const LoginForm = () => {
         if (res.data.email === user.email) {
           localStorage.setItem("token", res.data._id);
           localStorage.setItem(res.data._id, res.data.first_name + ' ' + res.data.last_name);
-          localStorage.setItem(res.data.first_name + ' ' + res.data.last_name, res.data.profile_image);
           handleRedirect();
         }
         else{
