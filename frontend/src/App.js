@@ -1,5 +1,6 @@
 import React, { Component }  from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import {isMobile} from 'react-device-detect'
 import HomePageLayout from "./components/Homepage/index.js";
 import Profile from "./components/user_profile/Profile";
 import Login from "./components/Auth/Login.js";
@@ -32,6 +33,15 @@ class App extends Component {
 
   render(){
     const { users } = this.state;
+	
+	{
+		if(isMobile) {
+			return (
+				<div> This Website is unavailable on mobile</div>
+			)
+		}
+	}
+	
     return (
       <div>
         {
