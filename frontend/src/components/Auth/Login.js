@@ -67,7 +67,7 @@ const LoginForm = () => {
             </Form>
             <Message>
               New to us?
-          <Link to="/signup">
+          <Link to="/signuppage">
                 <a href="/#"> Sign Up </a>
               </Link>
             </Message>
