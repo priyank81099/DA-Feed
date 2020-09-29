@@ -39,12 +39,11 @@ class SignUpForm extends Component {
         this.state = {
           first_name: null,
           last_name: null,
-          email: null,
+          email: localStorage.getItem("Current_Email"),
           password: null,
           formErrors: {
             first_name: "",
             last_name: "",
-            email: "",
             password: ""
           },
           redirect:false
@@ -56,7 +55,7 @@ class SignUpForm extends Component {
       }
 
       showMassege_invalid = () =>{
-        toast.error('Email Address is alredy Registered', {position: toast.POSITION.BOTTOM_CENTER});
+        toast.error('Invalid Access', {position: toast.POSITION.BOTTOM_CENTER});
       }
 
       handleRedirect = () => {
@@ -71,25 +70,34 @@ class SignUpForm extends Component {
 
       handleSubmit = e => {
         e.preventDefault();
-    
-        if (formValid(this.state)) 
-        {
-          const user = this.state;
-          axios.post(`${ SERVER_URL }/users`, user)
-          .then(res => {
-          if (res.data.email === user.email) 
+        const c1 = this.props.match.params.slug;
+        const u_email = localStorage.getItem("Current_Email");
+        const c2 = localStorage.getItem(u_email);
+
+        if(c1 === c2){
+          if (formValid(this.state)) 
           {
-            this.showMassege();
-            this.handleRedirect();
+            const user = this.state;
+            axios.post(`${ SERVER_URL }/users`, user)
+            .then(res => {
+            if (res.data.email === user.email) 
+            {
+              this.showMassege();
+              this.handleRedirect();
+            }
+            else {
+              this.showMassege_invalid();
+            }
+            })
+            .catch(error => {
+              console.log(error);
+            });
           }
-          else {
-            this.showMassege_invalid();
-          }
-          })
-          .catch(error => {
-            console.log(error);
-          });
         }
+        else{
+          this.showMassege_invalid();
+        }
+        
       };
 
       onchange = e => {
@@ -105,11 +113,6 @@ class SignUpForm extends Component {
           case "last_name":
             formErrors.last_name =
               value.length < 3 ? "yes" : "";
-            break;
-          case "email":
-            formErrors.email = emailRegex.test(value)
-              ? ""
-              : "yes";
             break;
           case "password":
             formErrors.password =
@@ -134,6 +137,23 @@ class SignUpForm extends Component {
               </Header>
               <Form size='large'>
                 <Segment stacked>
+                <Form.Input
+                  fluid icon='mail'
+                  iconPosition='left'
+                  placeholder='E-mail address'
+                  onChange={this.onchange} 
+                  value={email}
+                  readOnly
+                  />
+
+                    <Button color='teal' fluid size='large' type='submit' onClick={this.handleSubmit} disabled>
+                    Verify Email
+                  </Button>
+                  <br/>
+                  Your Email is Verified!
+
+                  <br/> <br/>
+
                   <Form.Input
                   error={formErrors.first_name.length>0 ? {
                     content:"Minimum 3 characaters required",
@@ -158,18 +178,6 @@ class SignUpForm extends Component {
                   name="last_name"
                   onChange={this.onchange}
                   />
-                  <Form.Input
-                  error={formErrors.email.length>0 ? {
-                    content:"Invalid email address",
-                    pointing: 'below',
-                  } : null}
-                  fluid icon='mail'
-                  iconPosition='left'
-                  placeholder='E-mail address'
-                  type='email'
-                  value={email}
-                  name="email"
-                  onChange={this.onchange} />
                   <Form.Input
                   error={formErrors.password.length>0 ? {
                     content:"Minimum 6 character required.",
