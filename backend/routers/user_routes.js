@@ -17,6 +17,10 @@ router.use(cors());
 router.use(bodyparser.json());
 
 
+var nodemailer = require('nodemailer');
+const Comment = mongoose.model("Comment");
+
+
 //---------------------------------------------------------
 
 const User = mongoose.model("User");
@@ -47,6 +51,67 @@ router.route("/users").post(async (req, res) => {
                 user.profile_image = "https://img.imageupload.net/2020/07/14/default.png"
                 await user.save();
                 res.send(user);
+            } catch (error) {
+                res.status(500);
+            }
+        }
+        else {
+            if (user) {
+                res.send("User already Registerd");
+            }
+            else {
+                res.status(500);
+            }
+        }
+    })
+})
+
+router.route("/checkinusers").post(async (req, res) => {
+
+    User.findOne({ email: req.body.email }, async (err, user) => {
+        if (!user && !err) {
+            try {
+                
+                var transporter = nodemailer.createTransport({
+                    host: 'smtp.gmail.com',
+                    port: 587,
+                    secureConnection: false,
+                    auth: {
+                        user: 'blog.daiict.ac.in@gmail.com',
+                        pass: '201701183'
+                    },
+                    tls: {
+                        ciphers: "SSLv3",
+                        rejectUnauthorized: false,
+                      },
+                });
+    
+                const date = new Date();
+                const url = `http://localhost:3000/signup/:`+req.body.email+"-+-"+date;
+                const slug_url = ":"+req.body.email+"-+-"+date;
+                
+                var mailOption = {
+                    from: '"DA-Feed" <blog.daiict.ac.in@gmail.com>',
+                    to: req.body.email,
+                    subject: 'DA-Feed',
+                    html: `Welcome to DA-Feed, <br><br>` +
+                    `<p>Please click <a href="${url}">here</a> to verify your email and update your profile.</p><br>` +
+                    "Regards,<br>" +
+                    "DA-Feed."
+                };
+
+                transporter.sendMail(mailOption, function(error, info){
+                    if(error) console.log(error);
+                    else {console.log("Success");}
+                });
+    
+                const user_with_slug = {
+                    email : req.body.email,
+                    slug_link : slug_url
+                }
+    
+                return res.send(user_with_slug);
+
             } catch (error) {
                 res.status(500);
             }
@@ -197,7 +262,6 @@ router.delete('/delete/:id',async function(req, res) {
 });
 
 //-----------------------------------------------------------
-const Comment = mongoose.model("Comment");
 
 router.route("/comments").get(async (req, res) => {
     try {
@@ -224,7 +288,6 @@ router.route("/comments").post(async (req, res) => {
 
 //------------------------------------------------------------
 
-var nodemailer = require('nodemailer');
 
 router.route("/forgotpassword").post(async (req, res) => {
 
@@ -255,13 +318,13 @@ router.route("/forgotpassword").post(async (req, res) => {
             const slug_url = ":"+date+"+-+"+req.body.email;
             
             var mailOption = {
-                from: '"Blogging Web" <blog.daiict.ac.in@gmail.com>',
+                from: '"DA-Feed" <blog.daiict.ac.in@gmail.com>',
                 to: req.body.email,
                 subject: 'Reset Password',
                 html: `Hello, <br><br>` +
                 `<p>Please click <a href="${url}">here</a> to change the password.</p><br>` +
                 "Regards,<br>" +
-                "Blogging Web."
+                "DA-Feed."
             };
 
             transporter.sendMail(mailOption, function(error, info){
