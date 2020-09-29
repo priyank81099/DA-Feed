@@ -10,6 +10,7 @@ import About_us from "./components/Footerpages/About_us.js";
 import Help from "./components/Footerpages/Help"
 import ForgotPassword from "./components/Auth/ForgotPassword.js";
 import ResetPassword from "./components/Auth/ResetPassword.js";
+import SignUpPage from "./components/Auth/SignUpPage.js";
 import './index.css';
 import axios from "axios";
 import { SERVER_URL } from "./utils/constants";
@@ -56,9 +57,10 @@ class App extends Component {
             <Route path="/help" component={Help}/>	
             <Route path="/profile" component={Profile} />
             <Route path="/login" component={Login} />
-            <Route path="/signup" component={SignUpForm} />
+            <Route path="/signup/:slug" component={SignUpForm} />
             <Route path="/front" component={Front} />
             <Route path="/forgotpassword" exact component={ForgotPassword} />
+            <Route path="/signuppage" exact component={SignUpPage} />
             <Route path="/resetpassword/:slug" component={ResetPassword} />
           </Switch>
         </Router>
