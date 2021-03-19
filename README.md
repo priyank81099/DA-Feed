@@ -17,3 +17,5 @@ after that open command promt in frontend folder and run following command
 -> "npm start"
 
 it will take more time for first time :)
+
+deployed at -> https://da-blogging-web.netlify.app
